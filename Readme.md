@@ -1,15 +1,43 @@
-Dependencies:
-React, React-dom
+# Usage:
 
-Dev Dependencies:
+The structure have support:
 
-- Babel: @babel/core @babel/preset-env @babel/preset-react babel-loader
-- Webpack: webpack webpack-cli webpack-dev-server
-- Typescript: typescript
-- Jest: @testing-library/jest-dom @testing-library/react @testing-library/user-event @types/jest @types/react-dom jest jest-environment-jsdom
+- Babel
+- Typescript
+- CSS, SVG
+- Webpack
+- Jest, React-Testing-Library
+- Redux Toolkit
+- Deployment on gh-pages
 
-1. Installs the dependencies and dev dependencies
-2. Has a webpack config
-3. Has jest.config.js, jest.setup.js
-4. Has tsconfig.json
-5. Has .babelrc
+# To Run the project:
+
+- npm install
+- npm run start
+- http://localhost:3000/
+
+# To Run the tests:
+
+- Write tests in the **tests** folder
+- npm run test
+
+# To deploy on gh-pages
+
+- Push the code on your github repository
+- Go in settings
+- Click on Pages from Left-side navigation
+  Keep the following settings:
+  - Source: Deploy from a branch
+  - Branch: select gh-pages from the first dropdown, root from the second dropdown
+  - Save
+- Package.json:
+  - Add homepage: "https://github.com/{github-username}/{reponame}
+- Run npm deploy from terminal
+- On successful deployment Terminal will print message "Published"
+- On the Github Pages (settings > Pages) "Your site is live at ...."
+  - Check for last deployed info (if the latest timestamp is not shown then refresh the page)
+
+Common Issues:
+
+- Assets loading from folder not reflecting on the website (icons, images)
+  - check if the path is './assets/....'

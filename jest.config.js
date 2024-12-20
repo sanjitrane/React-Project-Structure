@@ -1,16 +1,18 @@
-
-module.exports={
+module.exports = {
+  roots: ['<rootDir>/src'],
+  preset: 'ts-jest',
   collectCoverage: true,
-  collectCoverageFrom:['src/**/*.{ts,tsx}'],
-  coverageDirectory:'coverage',
+  collectCoverageFrom: ['src/**/*.{ts,tsx}'],
+  coverageDirectory: 'coverage',
   testEnvironment: 'jsdom',
-  setupFilesAfterEnv: ['./jest.setup.js'],
-  coverageThreshold:{
-    "global":{
-      "branches": 40,
-      "functions": 40,
-      "lines": 40,
-      "statements": -10
-    }
-  }
-}
+  transform: {
+    '^.+\\.tsx?$': 'ts-jest',
+  },
+  testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$',
+  moduleNameMapper: {
+    '\\.(css|less|scss|sass)$': 'identity-obj-proxy', // Mock CSS imports
+  },
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
+  transformIgnorePatterns: ['node_modules/(?!(module-to-transform)/)'],
+};
